@@ -1,7 +1,6 @@
 import {
   MenuIcon,
   Package2,
-  Home,
   ShoppingCart,
   Package,
   Users2,
@@ -10,6 +9,7 @@ import {
 import { Button } from "../ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import Link from "next/link";
+import { RxDashboard } from "react-icons/rx";
 
 export const HeaderMobile = () => {
   return (
@@ -34,7 +34,7 @@ export const HeaderMobile = () => {
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
-              <Home className="h-5 w-5" />
+              <RxDashboard className="h-5 w-5" />
               Dashboard
             </Link>
             <Link

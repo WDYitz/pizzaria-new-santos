@@ -1,13 +1,11 @@
 import {
   Package2,
-  LayoutDashboard,
   ShoppingCart,
   Package,
   Users2,
   LineChart,
   Settings,
 } from "lucide-react";
-import * as Icon from "react-icons";
 import {
   Tooltip,
   TooltipContent,
