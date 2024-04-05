@@ -1,12 +1,13 @@
 import {
   Package2,
-  Home,
+  LayoutDashboard,
   ShoppingCart,
   Package,
   Users2,
   LineChart,
   Settings,
 } from "lucide-react";
+import * as Icon from "react-icons";
 import {
   Tooltip,
   TooltipContent,
@@ -14,6 +15,7 @@ import {
   TooltipProvider,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
+import { RxDashboard } from "react-icons/rx";
 
 export const HeaderDesktop = () => {
   return (
@@ -24,7 +26,7 @@ export const HeaderDesktop = () => {
           className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
         >
           <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
-          <span className="sr-only">Acme Inc</span>
+          <span className="sr-only">Pizzaria New Santos</span>
         </Link>
         <TooltipProvider>
           <Tooltip>
@@ -33,7 +35,7 @@ export const HeaderDesktop = () => {
                 href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
-                <Home className="h-5 w-5" />
+                <RxDashboard className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>
               </Link>
             </TooltipTrigger>
