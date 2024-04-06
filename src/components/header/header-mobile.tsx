@@ -5,6 +5,7 @@ import {
   Package,
   Users2,
   LineChart,
+  Settings,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
@@ -17,7 +18,7 @@ export const HeaderMobile = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline" className="sm:hidden">
-            <MenuIcon className="h-5 w-5" />
+            <MenuIcon className="h-6 w-6" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
         </SheetTrigger>
@@ -32,37 +33,44 @@ export const HeaderMobile = () => {
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <RxDashboard className="h-5 w-5" />
               Dashboard
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-4 px-2.5 text-foreground"
+              className="flex items-center gap-4 px-2.5 py-2 text-foreground hover:bg-zinc-200 rounded-md"
             >
               <ShoppingCart className="h-5 w-5" />
               Orders
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <Package className="h-5 w-5" />
               Products
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <Users2 className="h-5 w-5" />
               Customers
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <LineChart className="h-5 w-5" />
+              Analytics
+            </Link>
+            <Link
+              href="#"
+              className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
+            >
+              <Settings className="h-5 w-5" />
               Settings
             </Link>
           </nav>
