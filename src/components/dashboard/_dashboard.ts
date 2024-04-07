@@ -1,13 +1,13 @@
 import { DashboardRoot } from './root'
-import { } from ''
-import { } from ''
-import { } from ''
-import { } from ''
+import { DashboardIncomeCard } from './dashboard-card-income'
+import { DashboardOrdersQtdCard } from './dashboard-card-orders-qtd'
+import { DashboardOutgoingCard } from './dashboard-card-outgoing'
+import { DashboardProfitCard } from './dashboard-card-profit'
 
-export const Dashboard = {
+export const DashboardCards = {
   Root: DashboardRoot,
-  Income: ,
-  OrderQuantity: ,
-  Outgoing: ,
-  Profit,
+  Income: DashboardIncomeCard,
+  OrderQuantity: DashboardOrdersQtdCard,
+  Outgoing: DashboardOutgoingCard,
+  Profit: DashboardProfitCard,
 }
