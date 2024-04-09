@@ -9,6 +9,43 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model Orders {
+  id        String   @id @default(uuid())
+  orderName String   @map("order_name")
+  price     Float
+  createdAt DateTime @default(now()) @map("created_at")
+  status    String
+  details   String
+
+  client   Client @relation(fields: [clientId], references: [id])
+  clientId String
+
+  @@map("orders")
+}
+
+model Client {
+  id               String  @id @default(uuid())
+  clientName       String  @map("client_name")
+  clientPhone      String  @map("client_phone")
+  clientCPF        String? @map("client_cpf")
+  clientAddress    String  @map("client_address")
+  clientNumber     String  @map("client_number")
+  clientComplement String  @map("client_complement")
+
+  Orders Orders[]
+
+  @@map("client")
+}
+
+model Products {
+  id             String @id @default(uuid())
+  productName    String @map("product_name")
+  productDetails String @map("product_details")
+  productPrice   Float  @map("product_price")
+
+  @@map("products")
 }
