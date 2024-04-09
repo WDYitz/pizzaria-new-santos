@@ -40,10 +40,27 @@ export default {
 
     return client
   },
+  getClientByName: async (name: string) => {
+    const client = await prisma.client.findFirst({
+      where: {
+        clientName: name,
+      }
+    })
+
+    return client
+  },
   deleteClientById: async (id: string) => {
     return await prisma.client.delete({
       where: {
         id,
+      }
+    })
+  },
+  deleteClientByName: async (id: string, name: string) => {
+    return await prisma.client.delete({
+      where: {
+        id,
+        clientName: name,
       }
     })
   }
