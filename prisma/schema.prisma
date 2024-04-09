@@ -21,13 +21,13 @@ model Orders {
   status    String
   details   String
 
-  client   Client @relation(fields: [clientId], references: [id])
-  clientId String
+  clients   Clients @relation(fields: [clientsId], references: [id])
+  clientsId String
 
   @@map("orders")
 }
 
-model Client {
+model Clients {
   id               String  @id @default(uuid())
   clientName       String  @map("client_name")
   clientPhone      String  @map("client_phone")
