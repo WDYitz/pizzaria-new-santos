@@ -6,7 +6,13 @@ const app = new Hono();
 export const createNewClient = app.post('/new-client', async (res) => {
   const { name, phone, cpf, address, number, complement } = await res.req.json()
 
-  await prisma.client.create({
+  const client = await prisma.clients.findFirst({
+    where: {
+      clientCPF: cpf
+    }
+  })
+
+  const newClient = await prisma.clients.create({
     data: {
       clientName: name,
       clientPhone: phone,
@@ -16,5 +22,11 @@ export const createNewClient = app.post('/new-client', async (res) => {
       clientComplement: complement
     }
   })
-  return res.json({ message: `client ${name} created with success` })
+
+  if (client?.clientCPF == cpf) {
+    return res.json({ message: `Desculpe, O cpf digitado já esta registrado` })
+  }
+  
+  console.log({ data: client, message: `Cliente registrado com sucesso` })
+  return res.json({ data: client, message: `Cliente registrado com sucesso` })
 })
