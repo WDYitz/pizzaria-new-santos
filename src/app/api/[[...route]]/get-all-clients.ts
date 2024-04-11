@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 
 const app = new Hono();
 
-export const getAllClients = app.get('/', async (res) => {
+export const getAllClients = app.get(async (res) => {
   const clientsResult = await prisma.clients.findMany({
     select: {
       id: true,
@@ -16,12 +16,13 @@ export const getAllClients = app.get('/', async (res) => {
     }
   })
 
-  if (!clientsResult) {
-    return res.json({ message: 'Nenhum cliente foi encontrado' })
+  if (clientsResult !== null) {
+    return res.json({
+      data: clientsResult
+    })
   }
 
-  return res.json({
-    data: clientsResult
-  })
+  return res.json({ message: 'Nenhum cliente foi encontrado' })
+
 })
 

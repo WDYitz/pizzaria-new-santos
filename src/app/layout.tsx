@@ -2,7 +2,7 @@ import { Roboto } from "next/font/google"; // Font's
 import type { Metadata } from "next"; // Meta Datas
 
 // Components
-import { Header } from "@/components/header/header";
+import { Navigation } from "@/components/navigation/navigation";
 
 // Styles
 import "./globals.css";
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<ChildrenType>) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Header />
+        <Navigation />
         {children}
       </body>
     </html>

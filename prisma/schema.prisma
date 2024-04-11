@@ -28,13 +28,14 @@ model Orders {
 }
 
 model Clients {
-  id               String  @id @default(uuid())
-  clientName       String  @map("client_name")
-  clientPhone      String  @map("client_phone")
-  clientCPF        String? @map("client_cpf")
-  clientAddress    String  @map("client_address")
-  clientNumber     String  @map("client_number")
-  clientComplement String  @map("client_complement")
+  id                 String  @id @default(uuid())
+  clientName         String  @map("client_name")
+  clientPhone        String  @map("client_phone")
+  clientCPF          String? @map("client_cpf")
+  clientAddress      String  @map("client_address")
+  clientNumber       String  @map("client_number")
+  clientComplement   String  @map("client_complement")
+  clientProfileImage Int     @default(1) @map("client_profile_image")
 
   Orders Orders[]
 

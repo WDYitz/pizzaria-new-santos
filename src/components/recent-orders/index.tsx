@@ -28,7 +28,7 @@ export const RecentOrders = () => {
           <CardDescription>Pedidos recentes de sua loja.</CardDescription>
         </div>
         <Button asChild size="sm" className="ml-auto gap-1">
-          <Link href="#">
+          <Link href="/orders">
             Ver todos
             <ArrowUpRight className="h-4 w-4" />
           </Link>
@@ -39,14 +39,12 @@ export const RecentOrders = () => {
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-              <TableHead className="xl:table-column">Status</TableHead>
-              <TableHead className="xl:table-column">Date</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Date</TableHead>
               <TableHead className="text-right">Amount</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
-            {/* PREENCHER COM DADOS DOS BANCO  */}
-          </TableBody>
+          <TableBody>{/* PREENCHER COM DADOS DOS BANCO  */}</TableBody>
         </Table>
       </CardContent>
     </Card>

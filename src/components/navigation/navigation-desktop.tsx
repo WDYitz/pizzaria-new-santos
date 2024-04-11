@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
 
-export const HeaderDesktop = () => {
+export const NavigationDesktop = () => {
   return (
     <header className="inset-y-0 left-0 z-10 hidden w-14 flex-col  bg-background sm:flex bg-light-gray text-white">
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
@@ -72,7 +72,7 @@ export const HeaderDesktop = () => {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
+                href="/customers"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Users2 className="h-5 w-5" />
@@ -86,7 +86,7 @@ export const HeaderDesktop = () => {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
+                href="/analytics"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <LineChart className="h-5 w-5" />
@@ -102,7 +102,7 @@ export const HeaderDesktop = () => {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
+                href="/settings"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Settings className="h-5 w-5" />

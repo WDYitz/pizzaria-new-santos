@@ -1,11 +1,5 @@
 import Image from "next/image";
-import {
-  File,
-  ListFilter,
-  MoreHorizontal,
-  PlusCircle,
-  Search,
-} from "lucide-react";
+import { MoreHorizontal, PlusCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,14 +12,10 @@ import {
 } from "@/components/ui/card";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -43,37 +33,13 @@ const Orders = () => {
 
       <div className="flex items-center">
         <div className="ml-auto flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="default"
-                size="default"
-                className="h-7 gap-2 bg-light-gray md:p-5"
-              >
-                <ListFilter className="h-5 w-5 " />
-                <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Filter
-                </span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="start"
-              className="bg-light-gray border-[#343434] text-white"
-            >
-              <DropdownMenuLabel>Filtrar por</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>
-                Status
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>Valor</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>Nome</DropdownMenuCheckboxItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button size="default" className="h-7 gap-1 bg-light-gray md:p-5">
+          <Button
+            size="default"
+            className="h-9  gap-1 bg-light-gray sm:p-5 md:p-5"
+          >
             <PlusCircle className="h-5 w-5 md:h-4 md:w-4" />
-            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Add Product
+            <span className="sm:not-sr-only sm:whitespace-nowrap">
+              Add Cliente
             </span>
           </Button>
         </div>
@@ -81,11 +47,13 @@ const Orders = () => {
 
       <Card
         x-chunk="dashboard-06-chunk-0"
-        className="border-0 bg-light-gray text-white"
+        className="border-0 bg-light-gray text-white grow"
       >
         <CardHeader>
-          <CardTitle>Pedidos</CardTitle>
-          <CardDescription>Visualização de todos os pedidos.</CardDescription>
+          <CardTitle>Clientes</CardTitle>
+          <CardDescription>
+            Visualização de todos os clientes do sistema.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
@@ -108,7 +76,7 @@ const Orders = () => {
               {Array.from({ length: 1 }).map((_, i) => {
                 return (
                   <TableRow key={i} className="border-[#343434]">
-                    <TableCell className="hidden sm:table-cell">
+                    <TableCell className="hidden lg:table-cell">
                       <Image
                         alt="Product image"
                         className="aspect-square rounded-md object-cover"
@@ -164,7 +132,7 @@ const Orders = () => {
         </CardContent>
         <CardFooter>
           <div className="text-xs text-muted-foreground">
-            Showing <strong>1-10</strong> of <strong>32</strong> products
+            Mostrando <strong>1-10</strong> de <strong>32</strong> clientes
           </div>
         </CardFooter>
       </Card>

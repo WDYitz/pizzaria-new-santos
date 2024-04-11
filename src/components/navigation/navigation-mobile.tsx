@@ -12,7 +12,7 @@ import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
 
-export const HeaderMobile = () => {
+export const NavigationMobile = () => {
   return (
     <header className="p-2 sm:hidden bg-dark-gray w-full">
       <Sheet>
@@ -60,21 +60,21 @@ export const HeaderMobile = () => {
               Products
             </Link>
             <Link
-              href="#"
+              href="/customers"
               className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <Users2 className="h-5 w-5" />
               Customers
             </Link>
             <Link
-              href="#"
+              href="/analytics"
               className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <LineChart className="h-5 w-5" />
               Analytics
             </Link>
             <Link
-              href="#"
+              href="/settings"
               className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground hover:text-foreground hover:bg-zinc-200 rounded-md"
             >
               <Settings className="h-5 w-5" />

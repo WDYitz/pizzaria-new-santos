@@ -24,9 +24,9 @@ export const createNewClient = app.post('/new-client', async (res) => {
   })
 
   if (client?.clientCPF == cpf) {
-    return res.json({ message: `Desculpe, O cpf digitado já esta registrado` })
+    return res.json({ message: `Desculpe, o cpf digitado já esta registrado` })
   }
-  
-  console.log({ data: client, message: `Cliente registrado com sucesso` })
-  return res.json({ data: client, message: `Cliente registrado com sucesso` })
+
+  console.log({ data: newClient, message: `Cliente registrado com sucesso` })
+  return res.json({ data: newClient, message: `Cliente registrado com sucesso` })
 })
