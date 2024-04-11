@@ -48,7 +48,7 @@ const Orders = () => {
               <Button
                 variant="default"
                 size="default"
-                className="h-7 gap-2 bg-light-gray md:p-5"
+                className="px-6 h-10 gap-2 bg-light-gray md:p-6 md:w-[100px]"
               >
                 <ListFilter className="h-5 w-5 " />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
@@ -57,7 +57,7 @@ const Orders = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              align="start"
+              align="end"
               className="bg-light-gray border-[#343434] text-white"
             >
               <DropdownMenuLabel>Filtrar por</DropdownMenuLabel>
@@ -69,13 +69,6 @@ const Orders = () => {
               <DropdownMenuCheckboxItem>Nome</DropdownMenuCheckboxItem>
             </DropdownMenuContent>
           </DropdownMenu>
-
-          <Button size="default" className="h-7 gap-1 bg-light-gray md:p-5">
-            <PlusCircle className="h-5 w-5 md:h-4 md:w-4" />
-            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Add Product
-            </span>
-          </Button>
         </div>
       </div>
 

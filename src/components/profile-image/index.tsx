@@ -18,7 +18,7 @@ export const ProfileImage = () => {
           className="overflow-hidden rounded-full"
         >
           <Image
-            src="https://cdn-icons-png.flaticon.com/512/1068/1068549.png"
+            src={""}
             width="50"
             height="50"
             alt="Avatar"

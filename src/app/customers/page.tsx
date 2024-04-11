@@ -47,7 +47,7 @@ const Orders = () => {
 
       <Card
         x-chunk="dashboard-06-chunk-0"
-        className="border-0 bg-light-gray text-white grow"
+        className="border-0 bg-light-gray text-white "
       >
         <CardHeader>
           <CardTitle>Clientes</CardTitle>
