@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { MoreHorizontal, PlusCircle } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,21 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { SearchProfileHeader } from "@/components/search-profile-header";
+import { ClientsTable } from "@/components/clients-table/table";
 
 const Orders = () => {
   return (
@@ -56,79 +41,7 @@ const Orders = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow className="border-[#6c6c6c]">
-                <TableHead className="hidden w-[100px] sm:table-cell">
-                  <span className="sr-only">Image</span>
-                </TableHead>
-                <TableHead>Nome</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Valor</TableHead>
-                <TableHead className="md:table-cell">Horário</TableHead>
-                <TableHead className="md:table-cell">Detalhes</TableHead>
-                <TableHead>
-                  <span className="sr-only">Actions</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody className="overflow-y-auto min-h-full">
-              {Array.from({ length: 1 }).map((_, i) => {
-                return (
-                  <TableRow key={i} className="border-[#343434]">
-                    <TableCell className="hidden lg:table-cell">
-                      <Image
-                        alt="Product image"
-                        className="aspect-square rounded-md object-cover"
-                        height="64"
-                        src="/"
-                        width="64"
-                      />
-                    </TableCell>
-                    <TableCell className="font-medium">
-                      Laser Lemonade Machine
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="outline">Draft</Badge>
-                    </TableCell>
-                    <TableCell>R$ 70</TableCell>
-                    <TableCell className=" md:table-cell">
-                      20:30 04/04/2024
-                    </TableCell>
-                    <TableCell className=" md:table-cell">
-                      Pizza Queijo
-                    </TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            aria-haspopup="true"
-                            size="icon"
-                            variant="ghost"
-                            className="hover:text-[#7f7f7f]"
-                          >
-                            <MoreHorizontal className="h-4 w-4" />
-                            <span className="sr-only">Toggle menu</span>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                          align="end"
-                          className="bg-light-gray text-white pointer border-[#343434]"
-                        >
-                          <DropdownMenuItem className="cursor-pointer hover:text-[#fff]">
-                            Edit
-                          </DropdownMenuItem>
-                          <DropdownMenuItem className="cursor-pointer hover:text-white">
-                            Delete
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
+          <ClientsTable />
         </CardContent>
         <CardFooter>
           <div className="text-xs text-muted-foreground">

@@ -9,7 +9,6 @@ import { createNewClient } from "./create-new-client";
 import { deleteClientById } from "./delete-client-by-id";
 //* ENDPOINTS ORDERS
 
-
 export const runtime: PageConfig = {
   runtime: "edge",
 };

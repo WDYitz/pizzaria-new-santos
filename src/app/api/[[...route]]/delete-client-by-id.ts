@@ -11,13 +11,11 @@ export const deleteClientById = app.delete('/:id', async (res) => {
     }
   })
 
-  if (!deletedClient) {
+  if (deletedClient.id !== id) {
     return res.json({
       message: "Esse cliente já foi deletado ou não existe!",
     })
   }
-
-  console.log(deletedClient)
 
   return res.json({
     message: "Cliente deletado!",

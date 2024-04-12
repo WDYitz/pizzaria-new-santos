@@ -18,7 +18,7 @@ export const getAllClients = app.get(async (res) => {
 
   if (clientsResult !== null) {
     return res.json({
-      data: clientsResult
+      clients: clientsResult
     })
   }
 

@@ -1,7 +1,7 @@
 import { DashboardCards } from "@/components/dashboard/_dashboard";
 import { DashboardProfitCard } from "@/components/dashboard/dashboard-card-profit";
 import { ProfileImage } from "@/components/profile-image";
-import { RecentOrders } from "@/components/recent-orders";
+/* import { RecentOrders } from "@/components/orders-table"; */
 
 const Dashboard = () => {
   return (
@@ -28,7 +28,7 @@ const Dashboard = () => {
         />
         <DashboardProfitCard title="Lucro Total" profit={0} porcent={0} />
       </DashboardCards.Root>
-      <RecentOrders />
+   {/*    <RecentOrders /> */}
     </main>
   );
 };

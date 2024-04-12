@@ -1,10 +1,7 @@
 import Image from "next/image";
 import {
-  File,
   ListFilter,
   MoreHorizontal,
-  PlusCircle,
-  Search,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -111,17 +108,17 @@ const Orders = () => {
                       />
                     </TableCell>
                     <TableCell className="font-medium">
-                      Laser Lemonade Machine
+                      Pizza quatro queijos
                     </TableCell>
                     <TableCell>
-                      <Badge variant="outline">Draft</Badge>
+                      <Badge variant="outline" className="bg-[#10b981] border-0 py-1 px-2">Finalizado</Badge>
                     </TableCell>
                     <TableCell>R$ 70</TableCell>
-                    <TableCell className=" md:table-cell">
+                    <TableCell className="md:table-cell">
                       20:30 04/04/2024
                     </TableCell>
-                    <TableCell className=" md:table-cell">
-                      Pizza Queijo
+                    <TableCell className="md:table-cell">
+                      Pizza Queijo, sem molho de tomate e sem cebola
                     </TableCell>
                     <TableCell>
                       <DropdownMenu>
