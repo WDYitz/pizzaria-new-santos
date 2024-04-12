@@ -9,7 +9,6 @@ import {
 } from "../ui/table";
 import { ClientsRow } from "./rows";
 import { Suspense } from "react";
-import { ClientDBSchemaType } from "@/types/ClientType";
 
 export const ClientsTable = () => {
   const { loading, clients } = useClientActions("api/clients");

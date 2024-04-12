@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { TableCell, TableRow } from "../ui/table";
 import { ClientDBSchemaType } from "@/types/ClientType";
+import Avatar1 from "@/assets/images/avatar.jpg";
 
 export const ClientsRow = ({
   clientName,
@@ -26,7 +27,7 @@ export const ClientsRow = ({
           alt="Product image"
           className="aspect-square rounded-md object-cover"
           height="64"
-          src="/"
+          src={Avatar1}
           width="64"
         />
       </TableCell>
