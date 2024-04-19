@@ -1,5 +1,4 @@
-import { PlusCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+'use client'
 import {
   Card,
   CardContent,
@@ -10,23 +9,23 @@ import {
 } from "@/components/ui/card";
 import { SearchProfileHeader } from "@/components/search-profile-header";
 import { ClientsTable } from "@/components/clients-table/table";
+import { OffCanvas } from "@/components/off-canvas";
+import { RotateCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { revalidateTag } from "next/cache";
 
-const Orders = () => {
+const Customers = () => {
+  const handleRevalidateClients = () => {
+    revalidateTag("clients");
+  };
+
   return (
     <main className="h-full w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
       <SearchProfileHeader />
 
       <div className="flex items-center">
         <div className="ml-auto flex items-center gap-2">
-          <Button
-            size="default"
-            className="h-9  gap-1 bg-light-gray sm:p-5 md:p-5"
-          >
-            <PlusCircle className="h-5 w-5 md:h-4 md:w-4" />
-            <span className="sm:not-sr-only sm:whitespace-nowrap">
-              Add Cliente
-            </span>
-          </Button>
+          <OffCanvas openText="Adicionar cliente" />
         </div>
       </div>
 
@@ -34,11 +33,21 @@ const Orders = () => {
         x-chunk="dashboard-06-chunk-0"
         className="border-0 bg-light-gray text-white "
       >
-        <CardHeader>
-          <CardTitle>Clientes</CardTitle>
-          <CardDescription>
-            Visualização de todos os clientes do sistema.
-          </CardDescription>
+        <CardHeader className="flex flex-row justify-between">
+          <div>
+            <CardTitle>Clientes</CardTitle>
+            <CardDescription className="pt-2">
+              <p>Visualização de todos os clientes do sistema.</p>
+            </CardDescription>
+          </div>
+          <Button
+            variant="default"
+            className="gap-2"
+            onClick={() => handleRevalidateClients}
+          >
+            <p>Reload</p>
+            <RotateCw className="focus:animate-spin" />
+          </Button>
         </CardHeader>
         <CardContent>
           <ClientsTable />
@@ -53,4 +62,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Customers;

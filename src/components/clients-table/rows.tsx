@@ -12,7 +12,7 @@ import { TableCell, TableRow } from "../ui/table";
 import { ClientDBSchemaType } from "@/types/ClientType";
 import Avatar1 from "@/assets/images/avatar.jpg";
 
-export const ClientsRow = ({
+export const ClientsRow = async ({
   clientName,
   clientCPF,
   clientPhone,
@@ -32,7 +32,7 @@ export const ClientsRow = ({
         />
       </TableCell>
       <TableCell className="font-medium">{clientName}</TableCell>
-      <TableCell>{clientCPF}</TableCell>
+      <TableCell className="md:table-cell">{clientCPF}</TableCell>
       <TableCell className="md:table-cell">{clientPhone}</TableCell>
       <TableCell className="md:table-cell">{clientAddress}</TableCell>
       <TableCell className="md:table-cell">{clientNumber}</TableCell>

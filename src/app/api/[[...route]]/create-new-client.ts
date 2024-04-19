@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import prisma from "@/lib/prisma";
+import { HTTPException } from "hono/http-exception";
 
 const app = new Hono();
 
@@ -8,9 +9,16 @@ export const createNewClient = app.post('/new-client', async (res) => {
 
   const client = await prisma.clients.findFirst({
     where: {
-      clientCPF: cpf
+      clientCPF: cpf,
+      AND: {
+        clientName: name
+      }
     }
   })
+
+  if (client?.clientCPF == cpf) {
+    throw new HTTPException(400, { message: 'Desculpe, o cpf digitado já esta registrado' })
+  }
 
   const newClient = await prisma.clients.create({
     data: {
@@ -23,9 +31,9 @@ export const createNewClient = app.post('/new-client', async (res) => {
     }
   })
 
-  if (client?.clientCPF == cpf) {
-    return res.json({ message: `Desculpe, o cpf digitado já esta registrado` })
-  }
 
-  return res.json({ data: newClient, message: `Cliente registrado com sucesso` })
+  return res.json({ data: newClient, message: `Cliente registrado com sucesso!` })
 })
+
+
+/*  */

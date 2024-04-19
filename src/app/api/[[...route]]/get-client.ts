@@ -14,7 +14,7 @@ export const getClient = app.get('/:id', async (res) => {
 
   if (!clientResult) {
     return res.json({
-      message: "Cliente não existee",
+      message: "Cliente não existe",
     })
   }
 

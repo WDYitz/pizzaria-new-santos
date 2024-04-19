@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useClientActions } from "@/hooks/useClientActions";
 import {
@@ -8,10 +9,15 @@ import {
   TableRow,
 } from "../ui/table";
 import { ClientsRow } from "./rows";
-import { Suspense } from "react";
+import { ClientSkeleton } from "../skeleton/client-skeleton";
+import { Suspense, useLayoutEffect } from "react";
 
 export const ClientsTable = () => {
-  const { loading, clients } = useClientActions("api/clients");
+  const { clients, handleClients } = useClientActions();
+
+  useLayoutEffect(() => {
+    handleClients("api/clients");
+  }, []);
 
   return (
     <Table>
@@ -33,7 +39,7 @@ export const ClientsTable = () => {
       </TableHeader>
       <TableBody className="overflow-y-auto min-h-full">
         {clients.map((client) => (
-          <Suspense key={client.id} fallback={<p>Loading...</p>}>
+          <Suspense key={client.id} fallback={<ClientSkeleton />}>
             <ClientsRow
               key={client.id}
               clientName={client.clientName}
