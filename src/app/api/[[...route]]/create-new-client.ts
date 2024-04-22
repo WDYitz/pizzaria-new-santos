@@ -17,7 +17,7 @@ export const createNewClient = app.post('/new-client', async (res) => {
   })
 
   if (client?.clientCPF == cpf) {
-    throw new HTTPException(400, { message: 'Desculpe, o cpf digitado já esta registrado' })
+    throw new HTTPException(400, { message: 'Desculpe, o cpf digitado já esta registrado' });
   }
 
   const newClient = await prisma.clients.create({
@@ -31,9 +31,5 @@ export const createNewClient = app.post('/new-client', async (res) => {
     }
   })
 
-
-  return res.json({ data: newClient, message: `Cliente registrado com sucesso!` })
+  return res.json({ data: newClient, message: `Cliente registrado com sucesso!` });
 })
-
-
-/*  */

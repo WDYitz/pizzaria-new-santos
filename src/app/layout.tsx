@@ -1,14 +1,9 @@
 import { Roboto } from "next/font/google"; // Font's
 import type { Metadata } from "next"; // Meta Datas
-
-// Components
-import { Navigation } from "@/components/navigation/navigation";
-
-// Styles
-import "./globals.css";
-
-// Types
-import { ChildrenType } from "@/types/ChildrenType";
+import { Providers } from "@/utils/providers";
+import { Navigation } from "@/components/navigation/navigation"; // Components
+import "./globals.css"; // Styles
+import { ChildrenType } from "@/types/ChildrenType"; // Types
 
 const roboto = Roboto({
   weight: ["100", "300", "500"],
@@ -24,8 +19,10 @@ export default function RootLayout({ children }: Readonly<ChildrenType>) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Navigation />
-        {children}
+        <Providers>
+          <Navigation />
+          {children}
+        </Providers>
       </body>
     </html>
   );

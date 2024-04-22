@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Card,
   CardContent,
@@ -12,11 +12,10 @@ import { ClientsTable } from "@/components/clients-table/table";
 import { OffCanvas } from "@/components/off-canvas";
 import { RotateCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { revalidateTag } from "next/cache";
 
 const Customers = () => {
   const handleRevalidateClients = () => {
-    revalidateTag("clients");
+    /*   revalidateTag("clients"); */
   };
 
   return (
@@ -43,7 +42,7 @@ const Customers = () => {
           <Button
             variant="default"
             className="gap-2"
-            onClick={() => handleRevalidateClients}
+            onClick={handleRevalidateClients}
           >
             <p>Reload</p>
             <RotateCw className="focus:animate-spin" />

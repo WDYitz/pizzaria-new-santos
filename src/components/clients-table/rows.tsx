@@ -9,17 +9,10 @@ import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { TableCell, TableRow } from "../ui/table";
-import { ClientDBSchemaType } from "@/types/ClientType";
 import Avatar1 from "@/assets/images/avatar.jpg";
+import { ClientDBSchemaType } from "@/types/ClientType";
 
-export const ClientsRow = async ({
-  clientName,
-  clientCPF,
-  clientPhone,
-  clientAddress,
-  clientNumber,
-  clientComplement,
-}: ClientDBSchemaType) => {
+export const ClientsRow = async ({ clients }: ClientDBSchemaType) => {
   return (
     <TableRow className="border-[#343434]">
       <TableCell className="hidden sm:table-cell">
@@ -31,12 +24,14 @@ export const ClientsRow = async ({
           width="64"
         />
       </TableCell>
-      <TableCell className="font-medium">{clientName}</TableCell>
-      <TableCell className="md:table-cell">{clientCPF}</TableCell>
-      <TableCell className="md:table-cell">{clientPhone}</TableCell>
-      <TableCell className="md:table-cell">{clientAddress}</TableCell>
-      <TableCell className="md:table-cell">{clientNumber}</TableCell>
-      <TableCell className="md:table-cell">{clientComplement}</TableCell>
+      <TableCell className="font-medium">{clients.clientName}</TableCell>
+      <TableCell className="md:table-cell">{clients.clientCPF}</TableCell>
+      <TableCell className="md:table-cell">{clients.clientPhone}</TableCell>
+      <TableCell className="md:table-cell">{clients.clientAddress}</TableCell>
+      <TableCell className="md:table-cell">{clients.clientNumber}</TableCell>
+      <TableCell className="md:table-cell">
+        {clients.clientComplement}
+      </TableCell>
       <TableCell>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

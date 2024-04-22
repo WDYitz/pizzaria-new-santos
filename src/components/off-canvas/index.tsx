@@ -54,7 +54,7 @@ export const OffCanvas = ({ openText }: { openText: string }) => {
       <SheetTrigger asChild>
         <Button variant="outline">{openText}</Button>
       </SheetTrigger>
-      <SheetContent className="text-white border-0 min-w-[500px]">
+      <SheetContent className="text-white border-0 min-w-[500px] p-12">
         <SheetHeader>
           <SheetTitle className="text-white">Criar cliente</SheetTitle>
           <SheetDescription>Criar novo cliente no sistema.</SheetDescription>
@@ -104,28 +104,30 @@ export const OffCanvas = ({ openText }: { openText: string }) => {
               value={address}
             />
           </div>
-          <div className="items-center gap-4 flex flex-col">
-            <Label htmlFor="number" className=" w-full">
-              Número
-            </Label>
-            <Input
-              id="number"
-              className="col-span-3 text-slate-600"
-              onChange={(e: any) => setNumber(e.value)}
-              value={number}
-            />
+          <div className="flex justify-between">
+            <div className="items-center gap-4 flex flex-col">
+              <Label htmlFor="number" className=" w-full">
+                Número
+              </Label>
+              <Input
+                id="number"
+                className=" text-slate-600"
+                onChange={(e: any) => setNumber(e.value)}
+                value={number}
+              />
+            </div>
+            <div className="items-center gap-4 flex flex-col">
+              <Label htmlFor="complemento" className=" w-full">
+                Complemento
+              </Label>
+              <Input
+                id="complemento"
+                className=" text-slate-600"
+                onChange={(e: any) => setComplement(e.value)}
+                value={complement}
+              />
+            </div>
           </div>
-        </div>
-        <div className="items-center gap-4 flex flex-col">
-          <Label htmlFor="complemento" className=" w-full">
-            Complemento
-          </Label>
-          <Input
-            id="complemento"
-            className="col-span-3 text-slate-600"
-            onChange={(e: any) => setComplement(e.value)}
-            value={complement}
-          />
         </div>
         <SheetFooter>
           <SheetClose asChild className="p-2">

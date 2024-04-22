@@ -1,4 +1,4 @@
-export type ClientDBSchemaType = {
+type ClientType = {
   id?: string;
   clientName: string;
   clientCPF: string;
@@ -7,4 +7,10 @@ export type ClientDBSchemaType = {
   clientNumber: string;
   clientComplement: string;
 }
+
+export type ClientsTypeSchema = {
+  clients: ClientType
+}
+
+
 

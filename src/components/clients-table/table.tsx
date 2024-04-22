@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import { useClientActions } from "@/hooks/useClientActions";
 import {
   Table,
   TableBody,
@@ -11,13 +10,20 @@ import {
 import { ClientsRow } from "./rows";
 import { ClientSkeleton } from "../skeleton/client-skeleton";
 import { Suspense, useLayoutEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { ClientsTypeSchema } from "@/types/ClientType";
 
 export const ClientsTable = () => {
-  const { clients, handleClients } = useClientActions();
+  const query = useQuery({
+    queryKey: ["clients"],
+    queryFn: async (): Promise<ClientsTypeSchema[]> => {
+      const res = await axios.get("http://localhost:3000/api/clients");
+      return res.data;
+    },
+  });
 
-  useLayoutEffect(() => {
-    handleClients("api/clients");
-  }, []);
+  console.log(query?.data);
 
   return (
     <Table>
@@ -38,17 +44,9 @@ export const ClientsTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody className="overflow-y-auto min-h-full">
-        {clients.map((client) => (
+        {query?.data?.clients?.map((client: any) => (
           <Suspense key={client.id} fallback={<ClientSkeleton />}>
-            <ClientsRow
-              key={client.id}
-              clientName={client.clientName}
-              clientCPF={client.clientCPF}
-              clientPhone={client.clientPhone}
-              clientAddress={client.clientAddress}
-              clientNumber={client.clientNumber}
-              clientComplement={client.clientComplement}
-            />
+            <ClientsRow key={client.id} clients={client} />
           </Suspense>
         ))}
       </TableBody>
