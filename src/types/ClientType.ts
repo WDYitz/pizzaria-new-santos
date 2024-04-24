@@ -1,3 +1,4 @@
+
 type ClientType = {
   id?: string;
   clientName: string;
@@ -6,6 +7,7 @@ type ClientType = {
   clientAddress: string;
   clientNumber: string;
   clientComplement: string;
+  clientProfileImage: number;
 }
 
 export type ClientsTypeSchema = {

@@ -1,13 +1,13 @@
 import { DashboardCards } from "@/components/dashboard/_dashboard";
 import { DashboardProfitCard } from "@/components/dashboard/dashboard-card-profit";
-import { ProfileImage } from "@/components/profile-image";
+import { SearchProfileHeader } from "@/components/search-profile-header";
 /* import { RecentOrders } from "@/components/orders-table"; */
 
 const Dashboard = () => {
   return (
     <main className="h-full w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
       <div className="flex justify-end">
-        <ProfileImage src={""} />
+        <SearchProfileHeader pageTitle="Dashboard" />
       </div>
 
       <DashboardCards.Root>
@@ -28,7 +28,7 @@ const Dashboard = () => {
         />
         <DashboardProfitCard title="Lucro Total" profit={0} porcent={0} />
       </DashboardCards.Root>
-   {/*    <RecentOrders /> */}
+      {/*    <RecentOrders /> */}
     </main>
   );
 };

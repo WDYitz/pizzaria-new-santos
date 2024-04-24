@@ -1,18 +1,7 @@
-import Image from "next/image";
-import {
-  ListFilter,
-  MoreHorizontal,
-} from "lucide-react";
+import { SearchProfileHeader } from "@/components/search-profile-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -22,7 +11,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -31,12 +19,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { SearchProfileHeader } from "@/components/search-profile-header";
+import { ListFilter, MoreHorizontal } from "lucide-react";
+import Image from "next/image";
 
 const Orders = () => {
   return (
     <main className="h-full w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
-      <SearchProfileHeader />
+      <SearchProfileHeader
+        hasSearchInput
+        pageTitle="Pedidos"
+        pageDescription="Visualização de todos os pedidos."
+      />
 
       <div className="flex items-center">
         <div className="ml-auto flex items-center gap-2">
@@ -73,10 +66,6 @@ const Orders = () => {
         x-chunk="dashboard-06-chunk-0"
         className="border-0 bg-light-gray text-white"
       >
-        <CardHeader>
-          <CardTitle>Pedidos</CardTitle>
-          <CardDescription>Visualização de todos os pedidos.</CardDescription>
-        </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
@@ -111,7 +100,12 @@ const Orders = () => {
                       Pizza quatro queijos
                     </TableCell>
                     <TableCell>
-                      <Badge variant="outline" className="bg-[#10b981] border-0 py-1 px-2">Finalizado</Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-[#10b981] border-0 py-1 px-2"
+                      >
+                        Finalizado
+                      </Badge>
                     </TableCell>
                     <TableCell>R$ 70</TableCell>
                     <TableCell className="md:table-cell">

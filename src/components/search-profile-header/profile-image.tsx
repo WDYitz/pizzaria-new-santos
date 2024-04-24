@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -6,9 +7,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import Image from "next/image";
 
-export const ProfileImage = ({ src }: { src: string }) => {
+export const ProfileImage = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -18,7 +18,7 @@ export const ProfileImage = ({ src }: { src: string }) => {
           className="overflow-hidden rounded-full"
         >
           <Image
-            src={src}
+            src={""}
             width="50"
             height="50"
             alt="Avatar"

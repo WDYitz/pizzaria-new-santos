@@ -1,19 +1,19 @@
 "use client";
 import {
   Sheet,
-  SheetTrigger,
+  SheetClose,
   SheetContent,
-  SheetTitle,
-  SheetHeader,
   SheetDescription,
   SheetFooter,
-  SheetClose,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "../ui/button";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
 import { useClientActions } from "@/hooks/useClientActions";
 import { useState } from "react";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 export const OffCanvas = ({ openText }: { openText: string }) => {
   const [name, setName] = useState("");
@@ -54,7 +54,7 @@ export const OffCanvas = ({ openText }: { openText: string }) => {
       <SheetTrigger asChild>
         <Button variant="outline">{openText}</Button>
       </SheetTrigger>
-      <SheetContent className="text-white border-0 min-w-[500px] p-12">
+      <SheetContent className="text-white border-0 min-w-[100%] p-12 sm:min-w-[30%]">
         <SheetHeader>
           <SheetTitle className="text-white">Criar cliente</SheetTitle>
           <SheetDescription>Criar novo cliente no sistema.</SheetDescription>
@@ -104,7 +104,7 @@ export const OffCanvas = ({ openText }: { openText: string }) => {
               value={address}
             />
           </div>
-          <div className="flex justify-between">
+          <div className="flex gap-4 justify-between">
             <div className="items-center gap-4 flex flex-col">
               <Label htmlFor="number" className=" w-full">
                 Número

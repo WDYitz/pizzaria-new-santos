@@ -1,9 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { TableRow, TableCell } from "../ui/table";
+import { TableCell, TableRow } from "../ui/table";
 
 export const ClientSkeleton = () => {
   return (
@@ -30,14 +26,7 @@ export const ClientSkeleton = () => {
         <Skeleton className="w-8 h-4 bg-dark-gray animate-pulse" />
       </TableCell>
       <TableCell>
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            asChild
-            className="flex justify-center items-center"
-          >
-            <Skeleton className="w-26 h-4 bg-dark-gray animate-pulse" />
-          </DropdownMenuTrigger>
-        </DropdownMenu>
+        <Skeleton className="w-26 h-4 bg-dark-gray animate-pulse" />
       </TableCell>
     </TableRow>
   );

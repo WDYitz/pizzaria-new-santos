@@ -1,28 +1,46 @@
 "use client";
+import Avatar1 from "@/assets/images/avatar-1.jpg";
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ClientsTypeSchema } from "@/types/ClientType";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { TableCell, TableRow } from "../ui/table";
-import Avatar1 from "@/assets/images/avatar.jpg";
-import { ClientDBSchemaType } from "@/types/ClientType";
 
-export const ClientsRow = async ({ clients }: ClientDBSchemaType) => {
+export const ClientsRow = async ({ clients }: ClientsTypeSchema) => {
   return (
     <TableRow className="border-[#343434]">
       <TableCell className="hidden sm:table-cell">
-        <Image
-          alt="Product image"
-          className="aspect-square rounded-md object-cover"
-          height="64"
-          src={Avatar1}
-          width="64"
-        />
+        {clients.clientProfileImage == 1 ? (
+          <Image
+            alt="Product image"
+            className="aspect-square rounded-md object-cover"
+            height="64"
+            src={Avatar1}
+            width="64"
+          />
+        ) : clients.clientProfileImage == 2 ? (
+          <Image
+            alt="Product image"
+            className="aspect-square rounded-md object-cover"
+            height="64"
+            src={Avatar1}
+            width="64"
+          />
+        ) : (
+          <Image
+            alt="Product image"
+            className="aspect-square rounded-md object-cover"
+            height="64"
+            src={Avatar1}
+            width="64"
+          />
+        )}
       </TableCell>
       <TableCell className="font-medium">{clients.clientName}</TableCell>
       <TableCell className="md:table-cell">{clients.clientCPF}</TableCell>

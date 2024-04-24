@@ -1,17 +1,8 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { SearchProfileHeader } from "@/components/search-profile-header";
 import { ClientsTable } from "@/components/clients-table/table";
 import { OffCanvas } from "@/components/off-canvas";
-import { RotateCw } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { SearchProfileHeader } from "@/components/search-profile-header";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 const Customers = () => {
   const handleRevalidateClients = () => {
@@ -20,7 +11,7 @@ const Customers = () => {
 
   return (
     <main className="h-full w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
-      <SearchProfileHeader />
+      <SearchProfileHeader hasSearchInput pageTitle="Clientes" pageDescription="Visualização de todos os clientes."/>
 
       <div className="flex items-center">
         <div className="ml-auto flex items-center gap-2">
@@ -32,7 +23,7 @@ const Customers = () => {
         x-chunk="dashboard-06-chunk-0"
         className="border-0 bg-light-gray text-white "
       >
-        <CardHeader className="flex flex-row justify-between">
+        {/* <CardHeader className="flex flex-row justify-between">
           <div>
             <CardTitle>Clientes</CardTitle>
             <CardDescription className="pt-2">
@@ -47,7 +38,7 @@ const Customers = () => {
             <p>Reload</p>
             <RotateCw className="focus:animate-spin" />
           </Button>
-        </CardHeader>
+        </CardHeader> */}
         <CardContent>
           <ClientsTable />
         </CardContent>
