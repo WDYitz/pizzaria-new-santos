@@ -9,7 +9,7 @@ import {
 } from "../ui/table";
 import { ClientsRow } from "./rows";
 import { ClientSkeleton } from "../skeleton/client-skeleton";
-import { Suspense, useLayoutEffect } from "react";
+import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { ClientsTypeSchema } from "@/types/ClientType";
@@ -19,11 +19,9 @@ export const ClientsTable = () => {
     queryKey: ["clients"],
     queryFn: async (): Promise<ClientsTypeSchema[]> => {
       const res = await axios.get("http://localhost:3000/api/clients");
-      return res.data;
+      return res.data.clients;
     },
   });
-
-  console.log(query?.data);
 
   return (
     <Table>
@@ -44,7 +42,7 @@ export const ClientsTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody className="overflow-y-auto min-h-full">
-        {query?.data?.clients?.map((client: any) => (
+        {query?.data?.map((client: any) => (
           <Suspense key={client.id} fallback={<ClientSkeleton />}>
             <ClientsRow key={client.id} clients={client} />
           </Suspense>
