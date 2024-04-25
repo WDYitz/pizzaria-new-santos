@@ -3,11 +3,13 @@ import { handle } from "hono/vercel";
 import type { PageConfig } from "next";
 
 //* ENDPOINTS CLIENTS
-import { getAllClients } from './get-all-clients'
-import { getClient } from './get-client'
 import { createNewClient } from "./create-new-client";
 import { deleteClientById } from "./delete-client-by-id";
+import { getAllClients } from './get-all-clients';
+import { getClient } from './get-client';
 //* ENDPOINTS ORDERS
+
+//* ENDPOINTS PRODUCTS
 
 export const runtime: PageConfig = {
   runtime: "edge",

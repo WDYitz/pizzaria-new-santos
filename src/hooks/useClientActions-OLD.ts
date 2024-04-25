@@ -1,12 +1,12 @@
 "use client"
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ClientDBSchemaType } from "@/types/ClientType";
+import { ClientsTypeSchema } from "@/types/ClientType";
 import { useState } from "react";
 
 export const useClientActions = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [clients, setClients] = useState<ClientDBSchemaType[]>([]);
+  const [clients, setClients] = useState<ClientsTypeSchema[]>([]);
 
   const handleClients = async (URL: string, body?: any, method?: string) => {
     if (!loading) {

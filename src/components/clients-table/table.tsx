@@ -1,8 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import { ClientsTypeSchema } from "@/types/ClientType";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useAllClients } from "@/utils/api-queries";
 import { Suspense } from "react";
 import { ClientSkeleton } from "../skeleton/client-skeleton";
 import {
@@ -15,14 +13,8 @@ import {
 import { ClientsRow } from "./rows";
 
 export const ClientsTable = () => {
-  // Get all users that are registered
-  const query = useQuery({
-    queryKey: ["clients"],
-    queryFn: async (): Promise<ClientsTypeSchema[]> => {
-      const res = await axios.get("http://localhost:3000/api/clients");
-      return res.data.clients;
-    },
-  });
+  // Get all clients registered
+  const query = useAllClients();
 
   return (
     <Table>
