@@ -14,21 +14,24 @@ datasource db {
 }
 
 model Orders {
-  id        String   @id @default(uuid())
-  orderName String   @map("order_name")
+  id        Int      @id @default(autoincrement())
+  itemsQtd  Int      @map("items_quantity")
+  details   String
   price     Float
   createdAt DateTime @default(now()) @map("created_at")
   status    String
-  details   String
 
   clients   Clients @relation(fields: [clientsId], references: [id])
-  clientsId String
+  clientsId Int
+
+  products   Products @relation(fields: [productsId], references: [id])
+  productsId Int
 
   @@map("orders")
 }
 
 model Clients {
-  id                 String  @id @default(uuid())
+  id                 Int     @id @default(autoincrement())
   clientName         String  @map("client_name")
   clientPhone        String  @map("client_phone")
   clientCPF          String? @map("client_cpf")
@@ -43,10 +46,11 @@ model Clients {
 }
 
 model Products {
-  id             String @id @default(uuid())
-  productName    String @map("product_name")
-  productDetails String @map("product_details")
-  productPrice   Float  @map("product_price")
+  id             Int      @id @default(autoincrement())
+  productName    String   @map("product_name")
+  productDetails String   @map("product_details")
+  productPrice   Float    @map("product_price")
+  Orders         Orders[]
 
   @@map("products")
 }

@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 const Customers = () => {
   const handleRevalidateClients = () => {
-    /*   revalidateTag("clients"); */
+    
   };
 
   return (

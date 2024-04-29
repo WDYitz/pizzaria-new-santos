@@ -1,5 +1,5 @@
-import { Hono } from "hono";
 import prisma from "@/lib/prisma";
+import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 
 const app = new Hono();
@@ -10,9 +10,6 @@ export const createNewClient = app.post('/new-client', async (res) => {
   const client = await prisma.clients.findFirst({
     where: {
       clientCPF: cpf,
-      AND: {
-        clientName: name
-      }
     }
   })
 

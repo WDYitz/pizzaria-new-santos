@@ -5,7 +5,7 @@ import { SearchProfileHeader } from "@/components/search-profile-header";
 
 const Dashboard = () => {
   return (
-    <main className="h-full w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
+    <main className="w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
       <div className="flex justify-end">
         <SearchProfileHeader pageTitle="Dashboard" />
       </div>
@@ -29,6 +29,7 @@ const Dashboard = () => {
         <DashboardProfitCard title="Lucro Total" profit={0} porcent={0} />
       </DashboardCards.Root>
       {/*    <RecentOrders /> */}
+     
     </main>
   );
 };
