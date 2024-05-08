@@ -17,7 +17,7 @@ type SearchProps = {
 
 export const Search = ({ pageTitle, pageDescription }: SearchProps) => {
   return (
-    <div className="sm:bg-transparent mr-2 flex w-full flex-col justify-between gap-4 sm:static sm:h-auto sm:flex-row sm:border-0 ">
+    <div className="sm:bg-transparent mr-2 flex w-full flex-col justify-between gap-4 sm:static sm:h-auto sm:flex-row sm:border-0">
       <div>
         <h2 className="text-[24px]">{pageTitle}</h2>
         <h3 className="text-slate-400">{pageDescription}</h3>
