@@ -1,28 +1,25 @@
-import { Roboto } from "next/font/google"; // Font's
-import type { Metadata } from "next"; // Meta Datas
-import { Providers } from "@/utils/providers";
 import { Navigation } from "@/components/navigation/navigation"; // Components
-import "./globals.css"; // Styles
 import { ChildrenType } from "@/types/ChildrenType"; // Types
+import type { Metadata } from "next"; // Meta Datas
+import { Poppins } from "next/font/google"; // Font's
+import "./globals.css"; // Styles
 
-const roboto = Roboto({
-  weight: ["100", "300", "500"],
+const poppins = Poppins({
+  weight: ["100", "300", "500", "600"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Pizzaria New Santos",
-  description: "Pizzaria New Santos com as melhores pizzas da baixada.",
+  title: "Pizzaria New Santos ADM",
+  description: "Pizzaria New Santos ADM",
 };
 
 export default function RootLayout({ children }: Readonly<ChildrenType>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
-        <Providers>
-          <Navigation />
-          {children}
-        </Providers>
+      <body className={poppins.className}>
+        <Navigation />
+        {children}
       </body>
     </html>
   );

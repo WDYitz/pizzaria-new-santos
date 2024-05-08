@@ -1,43 +1,49 @@
 import {
-  ShoppingCart,
-  Package,
-  Users2,
-  LineChart,
-  Settings,
-  Pizza,
-} from "lucide-react";
-import {
   Tooltip,
   TooltipContent,
-  TooltipTrigger,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  LineChart,
+  Package,
+  Pizza,
+  Settings,
+  ShoppingCart,
+  Users2,
+  Utensils,
+} from "lucide-react";
 import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
 
 export const NavigationDesktop = () => {
   return (
-    <header className="inset-y-0 left-0 z-10 hidden w-14 flex-col  bg-background sm:flex bg-light-gray text-white">
+    <header className="bg-background inset-y-0 left-0 z-10 hidden w-14  flex-col bg-light-gray text-white sm:flex">
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
         <Link
           href="/"
-          className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+          className="bg-primary text-primary-foreground group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:w-8 md:text-base"
         >
-          <Pizza className="h-4 w-4 transition-all group-hover:scale-11 " />
+          <Pizza className="group-hover:scale-11 h-4 w-4 transition-all " />
           <span className="sr-only">Pizzaria New Santos</span>
         </Link>
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger asChild >
+            <TooltipTrigger asChild>
               <Link
                 href="/dashboard"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
               >
                 <RxDashboard className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right" className="bg-light-gray text-white border-indigo-500">Dashboard</TooltipContent>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Dashboard
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -45,13 +51,18 @@ export const NavigationDesktop = () => {
             <TooltipTrigger asChild>
               <Link
                 href="/orders"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                className="bg-accent text-accent-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
               >
                 <ShoppingCart className="h-5 w-5" />
                 <span className="sr-only">Orders</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right" className="bg-light-gray text-white border-indigo-500">Orders</TooltipContent>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Orders
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -59,41 +70,76 @@ export const NavigationDesktop = () => {
             <TooltipTrigger asChild>
               <Link
                 href="/products"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
               >
                 <Package className="h-5 w-5" />
                 <span className="sr-only">Products</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right" className="bg-light-gray text-white border-indigo-500">Products</TooltipContent>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Products
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="/customers"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="/restaurants"
+                className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
+              >
+                <Utensils className="h-5 w-5" />
+                <span className="sr-only">Restaurants</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Restaurants
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href="/clients"
+                className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
               >
                 <Users2 className="h-5 w-5" />
                 <span className="sr-only">Customers</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right" className="bg-light-gray text-white border-indigo-500">Customers</TooltipContent>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Clients
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
+
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
                 href="/analytics"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
               >
                 <LineChart className="h-5 w-5" />
                 <span className="sr-only">Analytics</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right" className="bg-light-gray text-white border-indigo-500">Analytics</TooltipContent>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Analytics
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
@@ -103,13 +149,18 @@ export const NavigationDesktop = () => {
             <TooltipTrigger asChild>
               <Link
                 href="/settings"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
               >
                 <Settings className="h-5 w-5" />
                 <span className="sr-only">Settings</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right" className="bg-light-gray text-white border-indigo-500">Settings</TooltipContent>
+            <TooltipContent
+              side="right"
+              className="border-indigo-500 bg-light-gray text-white"
+            >
+              Settings
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>

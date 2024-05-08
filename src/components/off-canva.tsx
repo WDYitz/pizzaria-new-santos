@@ -9,11 +9,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useClientActions } from "@/hooks/useClientActions-OLD";
 import { useState } from "react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 export const OffCanvas = ({ openText }: { openText: string }) => {
   const [name, setName] = useState("");
@@ -22,32 +21,6 @@ export const OffCanvas = ({ openText }: { openText: string }) => {
   const [address, setAddress] = useState("");
   const [number, setNumber] = useState("");
   const [complement, setComplement] = useState("");
-
-  const { loading, handleClients } = useClientActions();
-
-  const handleCreateNewClient = () => {
-    if (
-      name !== "" &&
-      CPF !== "" &&
-      phone !== "" &&
-      address !== "" &&
-      number !== "" &&
-      complement !== ""
-    ) {
-      handleClients(
-        "/api/clients",
-        {
-          name,
-          CPF,
-          phone,
-          address,
-          number,
-          complement,
-        },
-        "POST"
-      );
-    }
-  };
 
   return (
     <Sheet>
@@ -135,7 +108,7 @@ export const OffCanvas = ({ openText }: { openText: string }) => {
               type="submit"
               variant="indigo"
               className="text-white items-end px-6 py-2 mt-8 bg-[#4f46e5]"
-              onClick={handleCreateNewClient}
+              onClick={() => {}}
             >
               Salvar
             </Button>

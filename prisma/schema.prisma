@@ -1,56 +1,139 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Orders {
-  id        Int      @id @default(autoincrement())
-  itemsQtd  Int      @map("items_quantity")
-  details   String
-  price     Float
-  createdAt DateTime @default(now()) @map("created_at")
-  status    String
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  clients   Clients @relation(fields: [clientsId], references: [id])
-  clientsId Int
-
-  products   Products @relation(fields: [productsId], references: [id])
-  productsId Int
-
-  @@map("orders")
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
 }
 
-model Clients {
-  id                 Int     @id @default(autoincrement())
-  clientName         String  @map("client_name")
-  clientPhone        String  @map("client_phone")
-  clientCPF          String? @map("client_cpf")
-  clientAddress      String  @map("client_address")
-  clientNumber       String  @map("client_number")
-  clientComplement   String  @map("client_complement")
-  clientProfileImage Int     @default(1) @map("client_profile_image")
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  Orders Orders[]
-
-  @@map("client")
+  @@map("sessions")
 }
 
-model Products {
-  id             Int      @id @default(autoincrement())
-  productName    String   @map("product_name")
-  productDetails String   @map("product_details")
-  productPrice   Float    @map("product_price")
-  Orders         Orders[]
+model User {
+  id                  String                   @id @default(cuid())
+  name                String?
+  email               String?                  @unique
+  emailVerified       DateTime?                @map("email_verified")
+  image               String?
+  orders              Order[]
+  favoriteRestaurants UserFavoriteRestaurant[]
+  accounts            Account[]
+  sessions            Session[]
 
-  @@map("products")
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model Restaurant {
+  id                  String                   @id @default(uuid())
+  name                String
+  imageUrl            String
+  deliveryFee         Decimal                  @db.Decimal(10, 2)
+  deliveryTimeMinutes Int
+  orders              Order[]
+  products            Product[]
+  usersWhoFavorited   UserFavoriteRestaurant[]
+  categories          Category[]               @relation("CategoryToRestaurant")
+}
+
+model UserFavoriteRestaurant {
+  userId       String
+  restaurantId String
+  createdAt    DateTime   @default(now())
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  user         User       @relation(fields: [userId], references: [id])
+
+  @@id([userId, restaurantId])
+}
+
+model Category {
+  id          String       @id @default(uuid())
+  name        String
+  imageUrl    String
+  createdAt   DateTime     @default(now())
+  products    Product[]
+  restaurants Restaurant[] @relation("CategoryToRestaurant")
+}
+
+model Product {
+  id                 String         @id @default(uuid())
+  name               String
+  description        String
+  imageUrl           String
+  price              Decimal        @db.Decimal(10, 2)
+  discountPercentage Int            @default(0)
+  restaurantId       String
+  categoryId         String
+  createdAt          DateTime       @default(now())
+  orderProducts      OrderProduct[]
+  category           Category       @relation(fields: [categoryId], references: [id])
+  restaurant         Restaurant     @relation(fields: [restaurantId], references: [id])
+}
+
+model OrderProduct {
+  id        String  @id @default(uuid())
+  orderId   String
+  productId String
+  quantity  Int
+  order     Order   @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Order {
+  id                  String         @id @default(uuid())
+  userId              String
+  restaurantId        String
+  deliveryFee         Decimal        @db.Decimal(10, 2)
+  deliveryTimeMinutes Int
+  subtotalPrice       Decimal        @db.Decimal(10, 2)
+  totalPrice          Decimal        @db.Decimal(10, 2)
+  totalDiscounts      Decimal        @db.Decimal(10, 2)
+  createdAt           DateTime       @default(now())
+  status              OrderStatus
+  restaurant          Restaurant     @relation(fields: [restaurantId], references: [id])
+  user                User           @relation(fields: [userId], references: [id])
+  products            OrderProduct[]
+}
+
+enum OrderStatus {
+  CONFIRMED
+  CANCELED
+  PREPARING
+  DELIVERING
+  COMPLETED
 }

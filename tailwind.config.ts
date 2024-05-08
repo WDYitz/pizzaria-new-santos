@@ -10,10 +10,6 @@ const config = {
   ],
   prefix: "",
   theme: {
-    backgroundColor: {
-      "dark-gray": "#121214",
-      "light-gray": "#1a1a1e"
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -22,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      backgroundColor: {
+        "dark-gray": "#121214",
+        "light-gray": "#1a1a1e"
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

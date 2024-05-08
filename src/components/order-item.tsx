@@ -6,13 +6,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ClientsTypeSchema } from "@/types/ClientType";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { TableCell, TableRow } from "../ui/table";
+import { Button } from "./ui/button";
+import { TableCell, TableRow } from "./ui/table";
 
-export const ClientsRow = async ({ clients }: ClientsTypeSchema) => {
+export const ClientsRow = async ({ clients }: any) => {
   return (
     <TableRow className="border-[#343434]">
       <TableCell className="hidden sm:table-cell">

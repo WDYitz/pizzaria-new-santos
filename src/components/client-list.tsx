@@ -1,21 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-"use client";
-import { useAllClients } from "@/utils/api-queries";
-import { Suspense } from "react";
-import { ClientSkeleton } from "../skeleton/client-skeleton";
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
-import { ClientsRow } from "./rows";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "./ui/table";
 
-export const ClientsTable = () => {
-  // Get all clients registered
-  const query = useAllClients();
-
+export const ClientsList = () => {
   return (
     <Table>
       <TableHeader>
@@ -35,11 +20,11 @@ export const ClientsTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody className="overflow-y-auto min-h-full">
-        {query?.data?.map((client: any) => (
+        {/* {clients?.data?.map((client: any) => (
           <Suspense key={client.id} fallback={<ClientSkeleton />}>
             <ClientsRow key={client.id} clients={client} />
           </Suspense>
-        ))}
+        ))} */}
       </TableBody>
     </Table>
   );

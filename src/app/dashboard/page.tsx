@@ -1,13 +1,12 @@
 import { DashboardCards } from "@/components/dashboard/_dashboard";
 import { DashboardProfitCard } from "@/components/dashboard/dashboard-card-profit";
-import { SearchProfileHeader } from "@/components/search-profile-header";
-/* import { RecentOrders } from "@/components/orders-table"; */
+import { Search } from "@/components/search";
 
 const Dashboard = () => {
   return (
-    <main className="w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
+    <main className="flex h-full w-full flex-col gap-4 bg-dark-gray p-4 text-white md:gap-8 md:p-8">
       <div className="flex justify-end">
-        <SearchProfileHeader pageTitle="Dashboard" />
+        <Search pageTitle="Dashboard" />
       </div>
 
       <DashboardCards.Root>
@@ -29,7 +28,6 @@ const Dashboard = () => {
         <DashboardProfitCard title="Lucro Total" profit={0} porcent={0} />
       </DashboardCards.Root>
       {/*    <RecentOrders /> */}
-     
     </main>
   );
 };
