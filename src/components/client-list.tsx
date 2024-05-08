@@ -1,9 +1,9 @@
-import { ClientSkeleton } from "./client-skeleton";
+import ClientsMocks from "@/mocks/clients-list-mock";
 
 export const ClientsList = () => {
   return (
     <div className="space-y-2 pt-4">
-      <ClientSkeleton />
+      <ClientsMocks />
     </div>
   );
 };
