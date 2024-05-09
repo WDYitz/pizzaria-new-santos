@@ -1,6 +1,6 @@
 import { Search } from "@/components/search";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -9,18 +9,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import OrdersMock from "@/mocks/orders-list-mock";
 import { ListFilter } from "lucide-react";
 
 const Orders = () => {
   return (
-    <main className="flex h-full w-full flex-col gap-4 bg-dark-gray p-4 text-white md:gap-8 md:p-8">
+    <main className="flex w-full flex-col gap-4 bg-dark-gray p-4 text-white md:h-[100vh] md:gap-8 md:p-8">
       <Search
         pageTitle="Pedidos"
         pageDescription="Visualização de todos os pedidos."
@@ -57,38 +51,14 @@ const Orders = () => {
         </div>
       </div>
 
-      <Card
-        x-chunk="dashboard-06-chunk-0"
-        className="border-0 bg-light-gray text-white"
-      >
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow className="border-[#6c6c6c]">
-                <TableHead className="hidden w-[100px] sm:table-cell">
-                  <span className="sr-only">Image</span>
-                </TableHead>
-                <TableHead>Nome</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Valor</TableHead>
-                <TableHead className="md:table-cell">Horário</TableHead>
-                <TableHead className="md:table-cell">Detalhes</TableHead>
-                <TableHead>
-                  <span className="sr-only">Actions</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody className="min-h-full overflow-y-auto">
-              <p>Mock</p>
-            </TableBody>
-          </Table>
+      <Card className="h-[800px] overflow-y-auto border-0 bg-light-gray text-white">
+        <CardContent className="pt-6">
+          <OrdersMock />
         </CardContent>
-        <CardFooter>
-          <div className="text-muted-foreground text-xs">
-            Showing <strong>1-10</strong> of <strong>32</strong> products
-          </div>
-        </CardFooter>
       </Card>
+      <div className="text-muted-foreground text-xs">
+        Showing <strong>1-10</strong> of <strong>32</strong> products
+      </div>
     </main>
   );
 };

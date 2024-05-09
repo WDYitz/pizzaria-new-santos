@@ -25,7 +25,7 @@ export const NavigationDesktop = () => {
           className="bg-primary text-primary-foreground group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:w-8 md:text-base"
         >
           <Pizza className="group-hover:scale-11 h-4 w-4 transition-all " />
-          <span className="sr-only">Pizzaria New Santos</span>
+          <span className="sr-only">New Santos Food Dashboard</span>
         </Link>
         <TooltipProvider>
           <Tooltip>

@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Customers = () => {
   return (
-    <main className="flex h-full w-full flex-col gap-4 bg-dark-gray p-4 text-white md:gap-8 md:p-8">
+    <main className="flex min-h-full w-full flex-col gap-4 bg-dark-gray p-4 text-white md:gap-8 md:p-8">
       <Search
         pageTitle="Clientes"
         pageDescription="Visualização de todos os clientes."

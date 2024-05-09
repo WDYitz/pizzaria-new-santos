@@ -10,11 +10,6 @@
   box-sizing: border-box;
 }
 
-body {
-  height: 100vh !important;
-  overflow: auto;
-}
-
 @media screen and (min-width: 640px) {
   body {
     display: flex;

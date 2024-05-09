@@ -1,18 +1,10 @@
-/* const Products = () => {
-  return (
-    <main className="h-full w-full flex flex-col gap-4 p-4 md:gap-8 md:p-8 bg-dark-gray text-white">
-      <h1>Products Page</h1>
-    </main>
-  );
-}; */
-
 import { Search } from "@/components/search";
 import { Button } from "@/components/ui/button";
 
 const Products = () => {
   return (
-    <main className="flex h-full w-full flex-col gap-4 bg-dark-gray p-4 text-white md:gap-8 md:p-8">
-      <Search pageTitle="Produtos"/>
+    <main className="flex w-full flex-col gap-4 bg-dark-gray p-4 text-white md:gap-8 md:p-8 h-full">
+      <Search pageTitle="Produtos" />
       <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed bg-dark-gray shadow-sm">
         <div className="flex flex-col items-center gap-1 text-center">
           <h3 className="text-2xl font-bold tracking-tight">

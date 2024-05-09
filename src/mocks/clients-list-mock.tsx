@@ -1,6 +1,6 @@
 import { ClientSkeleton } from "@/components/client-skeleton";
 
-const ClientsMocks = () => {
+const ClientsMock = () => {
   return (
     <>
       {Array.from({ length: 10 }).map(() => (
@@ -10,4 +10,4 @@ const ClientsMocks = () => {
   );
 };
 
-export default ClientsMocks;
+export default ClientsMock;

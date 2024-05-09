@@ -34,56 +34,56 @@ export const NavigationMobile = () => {
           <nav className="grid gap-6 text-lg font-medium">
             <Link
               href="/"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex w-[60%] items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex w-[60%] items-center gap-4 rounded-md px-2.5 py-2"
             >
               <Pizza className="h-5 w-5 text-indigo-500 transition-all" />
               <span className="sr-only">Pizzaria New Santos</span>
             </Link>
             <Link
               href="/dashboard"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <RxDashboard className="h-5 w-5" />
               Dashboard
             </Link>
             <Link
               href="/orders"
-              className="text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <ShoppingCart className="h-5 w-5" />
               Orders
             </Link>
             <Link
               href="/products"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <Package className="h-5 w-5" />
               Products
             </Link>
             <Link
               href="/restaurants"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <Utensils className="h-5 w-5" />
               Restaurants
             </Link>
             <Link
               href="/clients"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <Users2 className="h-5 w-5" />
               Clients
             </Link>
             <Link
               href="/analytics"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <LineChart className="h-5 w-5" />
               Analytics
             </Link>
             <Link
               href="/settings"
-              className="text-muted-foreground hover:text-foreground hover:bg-zinc-200 flex items-center gap-4 rounded-md px-2.5 py-2"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 rounded-md px-2.5 py-2 hover:bg-zinc-800"
             >
               <Settings className="h-5 w-5" />
               Settings
