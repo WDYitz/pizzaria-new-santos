@@ -4,24 +4,43 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Prisma } from "@prisma/client";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { TableCell, TableRow } from "./ui/table";
+import { TableCell } from "./ui/table";
 
-export const ClientsRow = async ({ client }: any) => {
+type ClientItemProps = {
+  client: Prisma.UserGetPayload<{
+    select: {
+      name: true;
+      email: true;
+      image: true;
+    };
+  }>;
+};
+
+export const ClientItem = ({ client }: ClientItemProps) => {
   return (
-    <TableRow className="border-[#343434]">
-      <TableCell className="hidden sm:table-cell">
-        <Image fill className="" src={""} alt={""} />
-      </TableCell>
-      <TableCell className="font-medium">{client.clientName}</TableCell>
-      <TableCell className="md:table-cell">{client.clientCPF}</TableCell>
-      <TableCell className="md:table-cell">{client.clientPhone}</TableCell>
-      <TableCell className="md:table-cell">{client.clientAddress}</TableCell>
-      <TableCell className="md:table-cell">{client.clientNumber}</TableCell>
-      <TableCell className="md:table-cell">{client.clientComplement}</TableCell>
-      <TableCell>
+    <div className="flex justify-between border-[#343434]">
+      <div className="rounded-sm sm:table-cell">
+        <Image
+          width={60}
+          height={60}
+          className="h-10 w-10 rounded-full"
+          src={client.image}
+          alt={client.name && client.name}
+        />
+      </div>
+      <div className="flex flex-col items-start justify-center text-left">
+        <TableCell className="hidden text-left font-medium">
+          {client.name}
+        </TableCell>
+        <TableCell className="text-left md:table-cell">
+          {client.email}
+        </TableCell>
+      </div>
+      <div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
@@ -36,7 +55,7 @@ export const ClientsRow = async ({ client }: any) => {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="end"
-            className="bg-light-gray text-white pointer border-[#343434]"
+            className="pointer border-[#343434] bg-light-gray text-white"
           >
             <DropdownMenuItem className="cursor-pointer hover:text-[#fff]">
               Edit
@@ -46,7 +65,7 @@ export const ClientsRow = async ({ client }: any) => {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </TableCell>
-    </TableRow>
+      </div>
+    </div>
   );
 };

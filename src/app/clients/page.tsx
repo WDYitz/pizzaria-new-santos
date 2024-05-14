@@ -10,7 +10,7 @@ const Customers = () => {
         pageDescription="Visualização de todos os clientes."
       />
 
-      <Card className="h-[800px] overflow-y-auto border-0 bg-light-gray text-white">
+      <Card className="w-[600px] max-w-full h-[800px] overflow-y-auto border-0 bg-light-gray text-white">
         <CardContent>
           <ClientsList />
         </CardContent>
