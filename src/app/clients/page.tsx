@@ -11,7 +11,7 @@ const Customers = () => {
       />
 
       <Card className="w-[600px] max-w-full h-[800px] overflow-y-auto border-0 bg-light-gray text-white">
-        <CardContent>
+        <CardContent className="space-y-2 pt-4">
           <ClientsList />
         </CardContent>
       </Card>

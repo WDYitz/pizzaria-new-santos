@@ -12,12 +12,12 @@ export const ClientsList = async () => {
     },
   });
   return (
-    <div className="space-y-2 pt-4">
+    <>
       {clients.map((client) => (
         <Suspense fallback={<ClientSkeleton />}>
           <ClientItem client={client} />
         </Suspense>
       ))}
-    </div>
+    </>
   );
 };
